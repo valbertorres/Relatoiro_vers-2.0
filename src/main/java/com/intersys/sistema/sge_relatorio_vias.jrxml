@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-04-03T14:21:18 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sge_relatorio_vias" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ac497038-c61d-4317-bb16-1e006e957d10">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sge_relatorio_produto"/>
+	<parameter name="empresa_nome" class="java.lang.String"/>
+	<parameter name="empresa_fone" class="java.lang.String"/>
+	<parameter name="cliente_nome" class="java.lang.String"/>
+	<parameter name="cliente_endereco" class="java.lang.String"/>
+	<parameter name="cliente_cidade" class="java.lang.String"/>
+	<parameter name="cliente_cnpj" class="java.lang.String"/>
+	<parameter name="cliente_vendedor" class="java.lang.String"/>
+	<parameter name="cliente_uf" class="java.lang.String"/>
+	<parameter name="cliente_ie" class="java.lang.String"/>
+	<parameter name="cliente_fone" class="java.lang.String"/>
+	<parameter name="cliente_bairro" class="java.lang.String"/>
+	<parameter name="cliente_cep" class="java.lang.String"/>
+	<parameter name="Logo" class="java.io.InputStream"/>
+	<parameter name="empresa_cnpj" class="java.lang.String"/>
+	<parameter name="empresa_ie" class="java.lang.String"/>
+	<parameter name="empresa_endereco" class="java.lang.String"/>
+	<parameter name="empresa_cidade" class="java.lang.String"/>
+	<parameter name="empresa_uf" class="java.lang.String"/>
+	<parameter name="empresa_email" class="java.lang.String"/>
+	<parameter name="collection" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="collection2" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="imprimir_via" class="java.lang.Boolean"/>
+	<parameter name="dir_1" class="java.io.InputStream">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="dir_2" class="java.io.InputStream"/>
+	<parameter name="exibir_grupo" class="java.lang.Boolean"/>
+	<parameter name="exibir_subgrupo" class="java.lang.Boolean"/>
+	<parameter name="exibir_ambiente" class="java.lang.Boolean"/>
+	<parameter name="lista" class="java.sql.Connection"/>
+	<parameter name="chave" class="java.lang.Integer"/>
+	<parameter name="numeroVias" class="java.lang.Integer"/>
+	<parameter name="numeroVias2" class="java.lang.Integer"/>
+	<parameter name="tipo_pedido" class="java.lang.String"/>
+	<parameter name="subDir" class="java.io.InputStream"/>
+	<parameter name="dataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="subBoolean" class="java.lang.Boolean"/>
+	<parameter name="subDir2" class="java.io.InputStream"/>
+	<parameter name="dataSource2" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="subBoolean2" class="java.lang.Boolean"/>
+	<parameter name="lista2" class="java.util.List"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="precoUnitario" class="java.lang.Double">
+		<fieldDescription><![CDATA[precoUnitario]]></fieldDescription>
+	</field>
+	<field name="obs" class="java.lang.String">
+		<fieldDescription><![CDATA[obs]]></fieldDescription>
+	</field>
+	<field name="totalGeralBruto" class="java.lang.Double">
+		<fieldDescription><![CDATA[totalGeralBruto]]></fieldDescription>
+	</field>
+	<field name="codigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[codigo]]></fieldDescription>
+	</field>
+	<field name="item" class="java.lang.Integer">
+		<fieldDescription><![CDATA[item]]></fieldDescription>
+	</field>
+	<field name="sessao" class="java.lang.String">
+		<fieldDescription><![CDATA[sessao]]></fieldDescription>
+	</field>
+	<field name="ambiente" class="java.lang.String">
+		<fieldDescription><![CDATA[ambiente]]></fieldDescription>
+	</field>
+	<field name="chave" class="java.lang.Long">
+		<fieldDescription><![CDATA[chave]]></fieldDescription>
+	</field>
+	<field name="grupo" class="java.lang.String">
+		<fieldDescription><![CDATA[grupo]]></fieldDescription>
+	</field>
+	<field name="orderBy" class="java.lang.String">
+		<fieldDescription><![CDATA[orderBy]]></fieldDescription>
+	</field>
+	<field name="totalGeralDesconto" class="java.lang.Double">
+		<fieldDescription><![CDATA[totalGeralDesconto]]></fieldDescription>
+	</field>
+	<field name="unidade" class="java.lang.String">
+		<fieldDescription><![CDATA[unidade]]></fieldDescription>
+	</field>
+	<field name="marca" class="java.lang.String">
+		<fieldDescription><![CDATA[marca]]></fieldDescription>
+	</field>
+	<field name="quantudade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[quantudade]]></fieldDescription>
+	</field>
+	<field name="totalGeralLiquido" class="java.lang.Double">
+		<fieldDescription><![CDATA[totalGeralLiquido]]></fieldDescription>
+	</field>
+	<field name="subgrupo" class="java.lang.String">
+		<fieldDescription><![CDATA[subgrupo]]></fieldDescription>
+	</field>
+	<field name="valorTotal" class="java.lang.Double">
+		<fieldDescription><![CDATA[valorTotal]]></fieldDescription>
+	</field>
+	<field name="nomeProduto" class="java.lang.String">
+		<fieldDescription><![CDATA[nomeProduto]]></fieldDescription>
+	</field>
+	<variable name="item1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{item}]]></variableExpression>
+	</variable>
+	<variable name="item2" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{item}]]></variableExpression>
+	</variable>
+	<group name="1via">
+		<groupFooter>
+			<band height="21">
+				<printWhenExpression><![CDATA[$P{subBoolean}==true?true:false]]></printWhenExpression>
+				<subreport>
+					<reportElement x="0" y="0" width="555" height="21" uuid="dfd9db56-dbb1-43e6-a621-cac66248ce68">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<dataSourceExpression><![CDATA[$P{dataSource2}]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$P{subDir2}]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="2via" isStartNewPage="true" minHeightToStartNewPage="240">
+		<groupFooter>
+			<band height="20">
+				<printWhenExpression><![CDATA[$P{imprimir_via}==true?true:false]]></printWhenExpression>
+				<subreport>
+					<reportElement x="0" y="0" width="555" height="20" uuid="e46d47ab-6aec-4cde-828a-8189df496084">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<subreportParameter name="empresa_nome">
+						<subreportParameterExpression><![CDATA[$P{empresa_nome}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_email">
+						<subreportParameterExpression><![CDATA[$P{empresa_email}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_uf">
+						<subreportParameterExpression><![CDATA[$P{empresa_uf}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_cidade">
+						<subreportParameterExpression><![CDATA[$P{empresa_cidade}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_endereco">
+						<subreportParameterExpression><![CDATA[$P{empresa_endereco}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_ie">
+						<subreportParameterExpression><![CDATA[$P{empresa_ie}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_cnpj">
+						<subreportParameterExpression><![CDATA[$P{empresa_cnpj}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="Logo">
+						<subreportParameterExpression><![CDATA[$P{Logo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_cep">
+						<subreportParameterExpression><![CDATA[$P{cliente_cep}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_bairro">
+						<subreportParameterExpression><![CDATA[$P{cliente_bairro}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_fone">
+						<subreportParameterExpression><![CDATA[$P{cliente_fone}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_ie">
+						<subreportParameterExpression><![CDATA[$P{cliente_ie}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_uf">
+						<subreportParameterExpression><![CDATA[$P{cliente_uf}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_vendedor">
+						<subreportParameterExpression><![CDATA[$P{cliente_vendedor}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_cnpj">
+						<subreportParameterExpression><![CDATA[$P{cliente_cnpj}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_cidade">
+						<subreportParameterExpression><![CDATA[$P{cliente_cidade}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_endereco">
+						<subreportParameterExpression><![CDATA[$P{cliente_endereco}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_nome">
+						<subreportParameterExpression><![CDATA[$P{cliente_nome}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_fone">
+						<subreportParameterExpression><![CDATA[$P{empresa_fone}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="exibir_grupo">
+						<subreportParameterExpression><![CDATA[$P{exibir_grupo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="exibir_subgrupo">
+						<subreportParameterExpression><![CDATA[$P{exibir_subgrupo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="exibir_ambiente">
+						<subreportParameterExpression><![CDATA[$P{exibir_ambiente}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="numeroVias2">
+						<subreportParameterExpression><![CDATA[$P{numeroVias2}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="tipo_pedido">
+						<subreportParameterExpression><![CDATA[$P{tipo_pedido}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[$P{collection}]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$P{dir_2}]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="sub">
+		<groupHeader>
+			<band height="20">
+				<subreport>
+					<reportElement x="0" y="0" width="555" height="20" uuid="c427ceb7-2194-46c7-beac-fd547c620aa6">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<subreportParameter name="empresa_nome">
+						<subreportParameterExpression><![CDATA[$P{empresa_nome}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_email">
+						<subreportParameterExpression><![CDATA[$P{empresa_email}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_uf">
+						<subreportParameterExpression><![CDATA[$P{empresa_uf}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_cidade">
+						<subreportParameterExpression><![CDATA[$P{empresa_cidade}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_endereco">
+						<subreportParameterExpression><![CDATA[$P{empresa_endereco}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_ie">
+						<subreportParameterExpression><![CDATA[$P{empresa_ie}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_cnpj">
+						<subreportParameterExpression><![CDATA[$P{empresa_cnpj}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="Logo">
+						<subreportParameterExpression><![CDATA[$P{Logo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_cep">
+						<subreportParameterExpression><![CDATA[$P{cliente_cep}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_bairro">
+						<subreportParameterExpression><![CDATA[$P{cliente_bairro}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_fone">
+						<subreportParameterExpression><![CDATA[$P{cliente_fone}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_ie">
+						<subreportParameterExpression><![CDATA[$P{cliente_ie}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_uf">
+						<subreportParameterExpression><![CDATA[$P{cliente_uf}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_vendedor">
+						<subreportParameterExpression><![CDATA[$P{cliente_vendedor}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_cnpj">
+						<subreportParameterExpression><![CDATA[$P{cliente_cnpj}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_cidade">
+						<subreportParameterExpression><![CDATA[$P{cliente_cidade}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_endereco">
+						<subreportParameterExpression><![CDATA[$P{cliente_endereco}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="cliente_nome">
+						<subreportParameterExpression><![CDATA[$P{cliente_nome}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="empresa_fone">
+						<subreportParameterExpression><![CDATA[$P{empresa_fone}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="exibir_grupo">
+						<subreportParameterExpression><![CDATA[$P{exibir_grupo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="exibir_subgrupo">
+						<subreportParameterExpression><![CDATA[$P{exibir_subgrupo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="exibir_ambiente">
+						<subreportParameterExpression><![CDATA[$P{exibir_ambiente}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="chave">
+						<subreportParameterExpression><![CDATA[$P{chave}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="numeroVias">
+						<subreportParameterExpression><![CDATA[$P{numeroVias}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="tipo_pedido">
+						<subreportParameterExpression><![CDATA[$P{tipo_pedido}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[$P{collection2}]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$P{dir_1}]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="sub2">
+		<groupHeader>
+			<band height="20">
+				<printWhenExpression><![CDATA[$P{subBoolean}==true?true:false]]></printWhenExpression>
+				<subreport>
+					<reportElement x="0" y="0" width="555" height="20" uuid="6ca0387d-260d-4203-b970-5aab320c0c3a">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<subreportParameter name="lista2">
+						<subreportParameterExpression><![CDATA[$P{lista2}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[$P{dataSource}]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$P{subDir}]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="66">
+				<textField pattern="¤#,##0.00;¤-#,##0.00" isBlankWhenNull="true">
+					<reportElement x="505" y="13" width="50" height="13" uuid="ddd38346-acbc-43fd-85b0-7bea1ffa2342">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalGeralDesconto}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="400" y="13" width="100" height="13" uuid="6327cd36-5730-48ee-86a4-c85222222bc5">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Valor do Desconto:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="39" width="130" height="13" uuid="8ed5d763-5049-4e80-bd31-342b9b5164ad">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Data.      /        /             Ass.:]]></text>
+				</staticText>
+				<textField pattern="¤#,##0.00;¤-#,##0.00" isBlankWhenNull="true">
+					<reportElement x="505" y="26" width="50" height="13" uuid="114f544b-0c4c-40b0-9e2f-8913448e7993">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalGeralLiquido}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="40" y="0" width="100" height="13" uuid="40a1a0a0-1f3a-4b54-a074-1d6f1f6ad1be">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{item2}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="26" width="400" height="13" uuid="a042a133-eae7-4ae4-b45a-756c22915d7b">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Obs. do Pedido.: "+$F{obs}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="127" y="52" width="425" height="1" uuid="9c7d9382-b57c-4f9f-bcf9-173202dc9fc2">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+				</line>
+				<textField>
+					<reportElement x="0" y="53" width="555" height="13" uuid="2821da24-047c-4dbd-a923-f658ef06deea">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
+					<textElement verticalAlignment="Top"/>
+					<textFieldExpression><![CDATA["================================================================================================"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="30" height="13" uuid="a0a34598-8c7b-4f81-abef-a1272a70a463">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Itens:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="400" y="26" width="100" height="13" uuid="d7c59846-140c-41d1-bad6-ed2f0b477aeb">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Valor Total a Pagar:]]></text>
+				</staticText>
+				<textField pattern="¤#,##0.00;¤-#,##0.00" isBlankWhenNull="true">
+					<reportElement x="505" y="0" width="50" height="13" uuid="b0dcbb08-6f59-4272-afed-5246a63c536c">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalGeralBruto}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="400" y="0" width="100" height="13" uuid="776b8915-2890-4562-a6de-a26c2f631027">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Valor do Pedido:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="76">
+			<staticText>
+				<reportElement x="0" y="10" width="30" height="13" uuid="a07d2000-ba7f-411f-b90f-f9720257d206">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Itens:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="23" width="100" height="13" uuid="b8503537-8eb0-421c-aaf8-af97d2f8b52e">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Valor do Desconto:]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00;¤-#,##0.00" isBlankWhenNull="true">
+				<reportElement x="505" y="36" width="50" height="13" uuid="b1089408-2ab9-4d7a-906d-1639c43132f1">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalGeralLiquido}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="10" width="100" height="13" uuid="3658d5c9-5198-407d-9213-ebdd1b8de0d4">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Valor do Pedido:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="127" y="62" width="425" height="1" uuid="ae5f0ba0-ab0d-4b47-8091-50b9eb6fcda0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement x="0" y="63" width="555" height="13" uuid="37dce8a5-9994-4425-8673-a44eb27d83a0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA["================================================================================================"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="36" width="400" height="13" uuid="470fef8e-5216-4669-ba15-084e1bbf5066">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Obs. do Pedido.: "+$F{obs}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="49" width="130" height="13" uuid="9fa7e970-ece9-4e01-9abb-67c4cc84559b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Data.      /        /             Ass.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="36" width="100" height="13" uuid="ab2873d8-d3d1-4268-aea6-9f758658f203">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Valor Total a Pagar:]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00;¤-#,##0.00" isBlankWhenNull="true">
+				<reportElement x="505" y="23" width="50" height="13" uuid="10d302c4-5cc7-4912-be82-22084228e326">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalGeralDesconto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00" isBlankWhenNull="true">
+				<reportElement x="505" y="10" width="50" height="13" uuid="1b61fb78-8f9b-4542-a892-11d812b6f5c7">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalGeralBruto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="10" width="100" height="13" uuid="e726c264-3af9-4fa5-9e07-f9a7f4ca92ec">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{item2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

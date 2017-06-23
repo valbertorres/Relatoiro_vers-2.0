@@ -1,0 +1,227 @@
+package com.intersys.sistema;
+
+import com.intersys.po.GerarImpressaoPO;
+import com.intersys.to.GerarImpressaoTO;
+
+public class ImpressaoCtrlVew {
+
+	private Tempo imprimirAuto = new Tempo();
+
+	public static void main(String[] args) {
+		ImpressaoCtrlVew ctrlVew = new ImpressaoCtrlVew();
+		ctrlVew.iniciaThred();
+	}
+
+	public void iniciaThred() {
+		imprimirAuto.start();
+	}
+
+	String ordemOmpressao;
+
+	private boolean grupo = false;
+	private boolean subGrupo = false;
+	private boolean ambiente = false;
+	private boolean sem = false;
+
+	public void selecaoimpressao(int ordemImpressao) {
+
+		if (ordemImpressao == 2) {
+			ordemOmpressao = "order by pdcodpro ASC";
+		}
+
+		if (ordemImpressao == 1) {
+			ordemOmpressao = "order by pdnome ASC";
+		}
+
+		if (ordemImpressao == 5) {
+			ordemOmpressao = "order by pdcodgru,pdcodpro ASC";
+		}
+
+		if (ordemImpressao == 6) {
+			ordemOmpressao = "order by pdcodgru,pdnome ASC";
+		}
+
+		if (ordemImpressao == 4) {
+			ordemOmpressao = "order by pdcodgru,pdcodram,pdcodpro ASC";
+		}
+
+		if (ordemImpressao == 3) {
+			ordemOmpressao = "order by pdcodgru,pdcodram,pdnome ASC";
+		}
+
+		if (ordemImpressao == 0) {
+			ordemOmpressao = "order by p2item ASC";
+		}
+
+		if (ordemImpressao == 7) {
+			ordemOmpressao = "order by pdsecao";
+		}
+
+	}
+
+	public void agrupamento(int i) {
+
+		if (i == 2) {
+			grupo = false;
+			subGrupo = false;
+			ambiente = true;
+			sem = false;
+		}
+
+		if (i == 0) {
+			grupo = true;
+			subGrupo = false;
+			ambiente = false;
+			sem = false;
+		}
+
+		if (i == 1) {
+			grupo = false;
+			subGrupo = true;
+			ambiente = false;
+			sem = false;
+		}
+		if (i == 3) {
+			grupo = false;
+			subGrupo = false;
+			ambiente = false;
+			sem = true;
+		}
+
+	}
+
+	public void imprimirAuto() {
+		GerarImpressaoPO gerarImpressaoPO = new GerarImpressaoPO();
+		GerarRelatorio gerarRelatorio = new GerarRelatorio();
+		GerarRelatorio2 gerarRelatorio2 = new GerarRelatorio2();
+
+		for (GerarImpressaoTO gerarImpressaoTO : gerarImpressaoPO.impressaoLista()) {
+			selecaoimpressao(gerarImpressaoTO.getOrdemImpressao());
+			agrupamento(gerarImpressaoTO.getAgrupamento());
+			gerarRelatorio.setChave(gerarImpressaoTO.getChave());
+			gerarRelatorio.setImpressora(gerarImpressaoTO.getImpressoraPadrão());
+			gerarRelatorio.setAmbiente(ambiente);
+			gerarRelatorio.setGrupo(grupo);
+			gerarRelatorio.setOrderBy(ordemOmpressao);
+			gerarRelatorio.setSubgrupo(subGrupo);
+			gerarRelatorio.setSem(sem);
+			gerarRelatorio2.setAmbiente(ambiente);
+			gerarRelatorio2.setGrupo(grupo);
+			gerarRelatorio2.setSubgrupo(subGrupo);
+			gerarRelatorio.setId(gerarImpressaoTO.getId());
+			System.out.println(gerarImpressaoTO.getId());
+			gerarRelatorio.setEvento(gerarImpressaoTO.getTipoEvento());
+			gerarRelatorio2.setGerarRelatorio(gerarRelatorio);
+			gerarRelatorio.setImpressora(gerarImpressaoTO.getImpressoraPadrão());
+			System.out.println("impressora padrao "+gerarImpressaoTO.getImpressoraPadrão());
+			try {
+				if (gerarImpressaoTO.getQtdVias() < 2) {
+					System.out.println("Tipo do evento " + gerarImpressaoTO.getTipoEvento());
+					System.out.println("Chave " + gerarImpressaoTO.getChave());
+					System.out.println("menor < 2");
+					if (gerarImpressaoTO.getModeloRelatorio() == 0) {
+						System.out.println("gerar relatorio modelo  " + gerarImpressaoTO.getModeloRelatorio());
+						gerarRelatorio.gerarRelatorio();
+					}
+					if (gerarImpressaoTO.getModeloRelatorio() == 1) {
+						gerarRelatorio2.setNumeroVias(1);
+						gerarRelatorio2.setImprimir_via(false);
+						gerarRelatorio2.gerarRelatorio2();
+					}
+				}
+
+				if (gerarImpressaoTO.getQtdVias() == 2) {
+					System.out.println("Tipo do evento " + gerarImpressaoTO.getTipoEvento());
+					System.out.println("Chave " + gerarImpressaoTO.getChave());
+					System.out.println("igual = 2");
+					if (gerarImpressaoTO.getModeloRelatorio() == 0) {
+						for (int i = 0; i < 2; i++) {
+							gerarRelatorio.gerarRelatorio();
+						}
+					}
+					if (gerarImpressaoTO.getModeloRelatorio() == 1) {
+						gerarRelatorio2.setImprimir_via(true);
+						gerarRelatorio2.setNumeroVias(1);
+						gerarRelatorio2.setNumeroVias2(2);
+						gerarRelatorio2.gerarRelatorio2();
+					}
+				}
+
+				if (gerarImpressaoTO.getQtdVias() > 2) {
+					System.out.println("Tipo do evento " + gerarImpressaoTO.getTipoEvento());
+					System.out.println("Chave " + gerarImpressaoTO.getChave());
+					System.out.println("maio > 2");
+					int divisor = gerarImpressaoTO.getQtdVias() / 2;
+					int resto = gerarImpressaoTO.getQtdVias() % 2;
+					for (int i = 0; i < divisor; i++) {
+						if (gerarImpressaoTO.getModeloRelatorio() == 0) {
+							gerarRelatorio.setContador(i);
+							gerarRelatorio.gerarRelatorio();
+						}
+						if (gerarImpressaoTO.getModeloRelatorio() == 1) {
+							gerarRelatorio.setContador(i);
+							gerarRelatorio2.setImprimir_via(true);
+							gerarRelatorio2.setNumeroVias(i+1);
+							gerarRelatorio2.setNumeroVias2(i+2);
+							gerarRelatorio2.gerarRelatorio2();
+						}
+					}
+					if (resto != 0) {
+						if (gerarImpressaoTO.getModeloRelatorio() == 0) {
+							gerarRelatorio.setContador(000000);
+							gerarRelatorio.gerarRelatorio();
+						}
+						if (gerarImpressaoTO.getModeloRelatorio() == 1) {
+							gerarRelatorio.setContador(00000);
+							gerarRelatorio2.setImprimir_via(false);
+							gerarRelatorio2.setNumeroVias(gerarImpressaoTO.getQtdVias());
+							gerarRelatorio2.gerarRelatorio2();
+						}
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	static int t = 0;
+
+	public class Tempo extends Thread {
+		int i = 0;
+
+		public void run() {
+			GerarImpressaoPO gerarImpressaoPO = new GerarImpressaoPO();
+			while (true) {
+
+				try {
+					Thread.sleep(1000);
+					i++;
+				} catch (Exception e) {
+				}
+				System.out.println(i);
+
+				switch (i) {
+				case 2:
+					try {
+						int lista = gerarImpressaoPO.impressaoLista().size();
+						System.out.println(lista);
+						if (lista != 0) {
+							for (int y = 0; y < lista; y++) {
+								imprimirAuto();
+							}
+						} else {
+
+							i = 0;
+						}
+						i = 0;
+
+					} catch (Exception e) {
+						e.printStackTrace();
+						imprimirAuto.stop();
+					}
+				}
+			}
+		}
+	}
+}
